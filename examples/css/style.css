@@ -1,0 +1,84 @@
+/* 
+ v5 basetest Interface css.
+ welovecode.net
+ 
+ */
+
+body {
+	background: black;
+	color: white;
+}
+
+canvas {
+
+}
+
+#content {
+	width:854px;
+	height:680px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:-340px 0 0 -427px;
+}
+
+#title {
+	width:854px;
+	text-align:right;
+	padding:15px;
+	border:1px solid #333;
+	background-color:#222;
+}
+
+#preview {
+    width:854px;
+	text-align:left;
+	padding:15px;
+	border:1px solid #333;
+	background-color:#222;
+    
+}
+
+#videoListPanel {
+	width:884px;
+	text-align:left;
+	height: 90px;
+	border:1px solid #333;
+	background-color:#222;
+}
+
+#videoListPanel ul {
+	border:0px;
+	margin:0px;
+	padding:0px;
+	list-style: none;
+	width:100%;
+}
+
+
+#videoListPanel li {
+	border:0px;
+	margin:0px;
+	padding:0px;
+	width: 160px;
+	height: 90px;
+	margin-right:2px;
+	background-color:#000;
+	float:left;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	cursor:hand; cursor:pointer;
+}
+
+.videoActive {
+	zoom: 1;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+}
+
+#videoListPanel div.loadingInfo {
+	width: 100%;
+	height: 100%;
+	background-color:#222;
+}
+

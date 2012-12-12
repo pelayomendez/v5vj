@@ -1,0 +1,89 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  	<title>v5vj.js : base test</title>
+  	<meta name="description" content="">
+  	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+	<!-- scripts  -->
+	<!-- jQuery -->
+  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  	<script>window.jQuery || document.write('<script src="../vendor/jquery-1.8.2.min.js"><\/script>')</script>
+  	<!-- end jQuery -->
+  	<!-- v5js -->
+  	<script src="../src/v5vj.js"></script>
+  	<!-- end v5js -->
+  	<!-- end scripts -->
+	<script>
+	$(document).ready(function() {
+		
+		// SETUP
+		//////////////////////////////////////////////////////////////
+		
+		var myVideos = new Array();
+		myVideos[0] = "data/sintel-trailer-480p";
+		myVideos[1] = "data/big-buck-bunny-trailer-480p";
+		//myVideos[0] = "http://www.welovecode.net/demos/testvideos/sintel-trailer-480p";
+		//myVideos[1] = "http://www.welovecode.net/demos/testvideos/big-buck-bunny-trailer-480p";
+		
+		v5vj.init('preview',854,480,myVideos);
+		v5vj.connectToServer();
+
+		// DEMO Interface:
+		//////////////////////////////////////////////////////////////
+		
+		var videoItems = $('#videoListPanel').find('.videoitem');
+		videoItems.click(function(e) {
+			var t = $(this), rel = t.attr('rel');
+			v5vj.changeVideo(rel);
+			videoItems.each(function(e) {
+				$(this).removeClass('videoActive');
+			});
+			t.addClass('videoActive');
+		});
+			
+		window.setInterval(function(){
+			
+			document.getElementById("serverinfo").innerHTML= v5vj.getServerInfo();
+			
+			var obj0 = $('#videoitem0').find('.loadingInfo');
+			var a0 = 100-v5vj.getVideoInfo(0)+'%';
+			obj0.animate({"width": a0},"slow");
+			
+			var obj1 = $('#videoitem1').find('.loadingInfo');
+			var a1 = 100-v5vj.getVideoInfo(1)+'%';
+			obj1.animate({"width": a1},"slow");
+	
+		},1000);	
+		
+		/*
+		$('#livewindow').click( function(){
+			v5vj.liveWindow();
+		});
+		*/
+	
+	});
+	</script>
+</head>
+<body>
+  <div id="content">
+  <div id="title">
+  	<div id="serverinfo">&nbsp;</div>
+  	<!--
+  	<a href='#' id='livewindow'>live window</a>
+  	-->
+  </div>
+  <div id="preview"></div>
+  <div id="videoListPanel">
+ 	<ul>
+ 		<li class="videoitem" id="videoitem0" rel="0" style="background-image: url('data/sintel-trailer-480p.png');">
+ 			<div class="loadingInfo"></div>
+ 		</li>
+ 		<li class="videoitem" id="videoitem1" rel="1" style="background-image: url('data/big-buck-bunny-trailer-480p.png');">
+ 			<div class="loadingInfo"></div>
+ 		</li>
+ 	</ul>
+  </div>
+  </div>
+</body>
+</html>

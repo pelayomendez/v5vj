@@ -1,0 +1,60 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  	<title>v5vj.js - video socket client</title>
+  	<meta name="description" content="">
+  	<script src="http://localhost:8080/socket.io/socket.io.js"></script>
+  	<script>
+  	
+ 	var startX = 0;
+ 	if(getUrlVars()["sx"] != undefined)  startX = getUrlVars()["sx"];
+ 	
+ 	var startY = 0;
+ 	if(getUrlVars()["sy"] != undefined)  startY = getUrlVars()["sy"];
+ 	
+  	function loadCanvas(dataURL) {
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext('2d');
+		
+		var destW = canvas.width;
+	 	if(getUrlVars()["dw"] != undefined)  destW = getUrlVars()["dw"];
+	 	var destH = canvas.height;
+	 	if(getUrlVars()["dh"] != undefined)  destH = getUrlVars()["dh"];
+		
+        // load image from data url
+        var imageObj = new Image();
+        imageObj.onload = function() {
+          context.drawImage(this, startX, startY, destW, destH,0,0,canvas.width,canvas.height);
+        };
+
+        imageObj.src = dataURL;
+     }
+     
+     function getUrlVars() {
+	    var vars = {};
+	    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+	        vars[key] = value;
+	    });
+	    return vars;
+	}
+
+      
+  	
+  	var socket = io.connect('http://localhost:8080/');
+  	socket.on('connect', function () {
+    	//socket.send('hi');
+    	socket.on('setFrame', function (img) {
+      		//document.querySelector("#a").src = img;
+      		loadCanvas(img);
+    	});
+  	});
+	</script>
+</head>
+<body style="margin:0px;padding:0px;width:100%;height:100%;overflow:hidden;">
+  <!--
+  <img id="a" src="" style="width:100%;height:100%;"></img>
+  -->
+  <canvas id="myCanvas" src="" style="width:100%;height:100%;"></canvas>
+</body>
+</html>
