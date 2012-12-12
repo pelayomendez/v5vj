@@ -1,10 +1,5 @@
-
-v5vj.js :: v0.0.5
-video canvas vj stream script
-welovecode dic'12
--------------------------------------------------------
--------------------------------------------------------
-
+<h1>v5vj.js :: v0.0.5</h1>
+video canvas vj stream script :: welovecode dic'12
 
 What is it?
 -------------------------------------------------------
@@ -21,7 +16,7 @@ from DOM and enables a new way of writing native applications with all Web techn
 So... by running the test web app here: 
 http://www.welovecode.net/demos/v5vjdemo/examples/v5basetest.html
 
-.. and downloading the and running the server n your computer you´ll be able to stream the canvas content, 
+.. and downloading and running the server n your computer you´ll be able to stream the canvas content, 
 (or part of it) to many diferent devices/computers on your local network. 
 
 Please note this is a concept test release in really alpha stage.
