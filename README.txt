@@ -1,13 +1,12 @@
-////////////////////////////////////////////////////////////////
 
-<b>v5vj.js :: v0.0.5</b>
+
+#v5vj.js :: v0.0.5
 
 video canvas vj stream script
 welovecode dic'12
 
-////////////////////////////////////////////////////////////////
 
-<b>What is it?</b>
+##What is it?
 
 First of all is a simple script to load and manipulate videos dynamically on a canvas element.
 The original idea was to use it for developing vj web software or interactive video websites in HTML5.
@@ -26,23 +25,23 @@ http://www.welovecode.net/demos/v5vjdemo/examples/v5basetest.html
 
 Please note this is a concept test release in really alpha stage.
 
-<b>What for?</b>
+##What for?
 
 - Video wall multi-device installations.
 - Multi-vj live sessions
 - Visual interaction in local network of visuals with remote controll
 - ...
 
-<b>What´s next?</b>
+##What´s next?
 
 - Improve the script and test it in a real project.
 - Extend base test to create a really usefull vj software.
 - Extend v5vjserver client to be more flexible and configurable.
 
-<b>Supported video formats:</b>
+##Supported video formats:
 .MP4, .WEBM
 
-<b>Supported browsers:</b>
+##Supported browsers:
 
 * App:
 Firefox (OSX), Chrome (OSX)
